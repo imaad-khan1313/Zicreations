@@ -1731,43 +1731,7 @@
   </section>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-  <script>
-    const supabaseUrl = "https://oilfsedqrjgvwyfydduq.supabase.co";
-    const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9pbGZzZWRxcmpndnd5ZnlkZHVxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc3MTUyMTEsImV4cCI6MjA5MzI5MTIxMX0.TvgXZyn6VtoYkAYFkOqC59RGcnc9amZlDDLyJWgxXr8";
-
-    const { createClient } = supabase;
-    const supabaseClient = createClient(supabaseUrl, supabaseKey);
-
-    document.getElementById("contactForm").addEventListener("submit", async (e) => {
-      e.preventDefault();
-
-      const btn = document.getElementById("submit-button-id");
-      btn.innerText = "Sending...";
-      btn.disabled = true;
-
-      const name = document.getElementById("name").value;
-      const email = document.getElementById("email").value;
-      const service = document.getElementById("service").value;
-      const message = document.getElementById("message").value;
-
-      const { error } = supabaseClient
-        .from("contact_messages")
-        .insert([
-          {name: name,
-            email: email,
-            service: service,
-            message: message,}]);
-      if (error) {
-        alert("❌ Error sending message");
-        console.log(error);
-        btn.innerText = "Send Message";
-        btn.disabled = false;
-      } else {
-        btn.innerText = "✅ Message Sent!";
-        btn.style.background = "green";
-        document.getElementById("contactForm").reset();
-      }
-    });
+  
   </script>
   <!-- FOOTER -->
   <footer>
@@ -1784,6 +1748,11 @@
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
   <script>
     // ── CURSOR ──
+    const supabaseUrl = "https://oilfsedqrjgvwyfydduq.supabase.co";
+    const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im9pbGZzZWRxcmpndnd5ZnlkZHVxIiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzc3MTUyMTEsImV4cCI6MjA5MzI5MTIxMX0.TvgXZyn6VtoYkAYFkOqC59RGcnc9amZlDDLyJWgxXr8";
+
+    const { createClient } = supabase;
+    const supabaseClient = createClient(supabaseUrl, supabaseKey);
     const cursor = document.getElementById('cursor');
     const cursorRing = document.getElementById('cursorRing');
     let mx = 0, my = 0, rx = 0, ry = 0;
