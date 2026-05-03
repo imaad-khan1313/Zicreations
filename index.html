@@ -1753,12 +1753,10 @@
       const { error } = supabaseClient
         .from("contact_messages")
         .insert([
-          { name: name,
+          {name: name,
             email: email,
             service: service,
-            message: message, }
-        ]);
-
+            message: message,}]);
       if (error) {
         alert("❌ Error sending message");
         console.log(error);
